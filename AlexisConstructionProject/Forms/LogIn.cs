@@ -16,5 +16,10 @@ namespace AlexisConstructionProject.Forms
         {
             InitializeComponent();
         }
+
+        private void buttonLogIn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
