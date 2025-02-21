@@ -48,16 +48,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Database.cs" />
-    <Compile Include="Forms\LogIn.cs">
+    <Compile Include="Classes\functionsLogIn\ClassLogIn.cs" />
+    <Compile Include="Forms\FormLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LogIn.Designer.cs">
-      <DependentUpon>LogIn.cs</DependentUpon>
+    <Compile Include="Forms\FormLogIn.Designer.cs">
+      <DependentUpon>FormLogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainBoardUserClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainBoardUserClient.Designer.cs">
+      <DependentUpon>MainBoardUserClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\ObjectsUserCredentials.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\LogIn.resx">
-      <DependentUpon>LogIn.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormLogIn.resx">
+      <DependentUpon>FormLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainBoardUserClient.resx">
+      <DependentUpon>MainBoardUserClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,8 +92,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Objects\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

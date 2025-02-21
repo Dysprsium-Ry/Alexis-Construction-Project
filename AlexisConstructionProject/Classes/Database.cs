@@ -17,7 +17,7 @@ namespace AlexisConstructionProject.Classes
     {
         public static SqlConnection connection()
         {
-            var Connection = new SqlConnection();
+            var Connection = new SqlConnection(DatabaseConnection.ConnectionString);
             Connection.Open();
             return Connection;
         }

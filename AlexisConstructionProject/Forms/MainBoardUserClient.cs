@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace AlexisConstructionProject.Forms
 {
-    public partial class FormLogIn : Form
+    public partial class MainBoardUserClient : Form
     {
-        public FormLogIn()
+        public MainBoardUserClient()
         {
             InitializeComponent();
-        }
-
-        private void buttonLogIn_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
