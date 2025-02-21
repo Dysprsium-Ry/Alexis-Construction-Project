@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.tabPageCustomerManagement = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonRegister = new System.Windows.Forms.Button();
             this.comboBoxGender = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -48,14 +46,22 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPageCustomerList = new System.Windows.Forms.TabPage();
+            this.buttonDeleteClient = new System.Windows.Forms.Button();
             this.dataGridViewCustomerLists = new System.Windows.Forms.DataGridView();
             this.tabPageBookingLog = new System.Windows.Forms.TabPage();
             this.dataGridViewBookingLogs = new System.Windows.Forms.DataGridView();
             this.tabPageBilling = new System.Windows.Forms.TabPage();
+            this.buttonAcceptBooking = new System.Windows.Forms.Button();
             this.dataGridViewBilling = new System.Windows.Forms.DataGridView();
             this.tabPageTransactionLogs = new System.Windows.Forms.TabPage();
+            this.buttonEditLogs = new System.Windows.Forms.Button();
+            this.buttonDeleteTransaction = new System.Windows.Forms.Button();
             this.dataGridViewTransactionLogs = new System.Windows.Forms.DataGridView();
             this.tabPageServices = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePickerBookingDate = new System.Windows.Forms.DateTimePicker();
+            this.labelBookingDate = new System.Windows.Forms.Label();
+            this.labeldurationdesc = new System.Windows.Forms.Label();
             this.buttonRegisterBooking = new System.Windows.Forms.Button();
             this.textBoxTotalFee = new System.Windows.Forms.TextBox();
             this.textBoxFee = new System.Windows.Forms.TextBox();
@@ -68,13 +74,8 @@
             this.tabControMain = new System.Windows.Forms.TabControl();
             this.tabPageServicesOffered = new System.Windows.Forms.TabPage();
             this.dataGridViewServicesOffered = new System.Windows.Forms.DataGridView();
-            this.labeldurationdesc = new System.Windows.Forms.Label();
-            this.labelBookingDate = new System.Windows.Forms.Label();
-            this.dateTimePickerBookingDate = new System.Windows.Forms.DateTimePicker();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.buttonDeleteClient = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonEditTools = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.tabPageCustomerManagement.SuspendLayout();
             this.tabPageCustomerList.SuspendLayout();
@@ -112,7 +113,7 @@
             // 
             // tabPageCustomerManagement
             // 
-            this.tabPageCustomerManagement.Controls.Add(this.button1);
+            this.tabPageCustomerManagement.Controls.Add(this.buttonEdit);
             this.tabPageCustomerManagement.Controls.Add(this.buttonRegister);
             this.tabPageCustomerManagement.Controls.Add(this.comboBoxGender);
             this.tabPageCustomerManagement.Controls.Add(this.label11);
@@ -133,14 +134,14 @@
             this.tabPageCustomerManagement.Text = "Client Management";
             this.tabPageCustomerManagement.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonEdit
             // 
-            this.button1.Location = new System.Drawing.Point(715, 322);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 27);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Edit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonEdit.Location = new System.Drawing.Point(715, 322);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(160, 27);
+            this.buttonEdit.TabIndex = 22;
+            this.buttonEdit.Text = "Edit";
+            this.buttonEdit.UseVisualStyleBackColor = true;
             // 
             // buttonRegister
             // 
@@ -269,8 +270,18 @@
             this.tabPageCustomerList.Name = "tabPageCustomerList";
             this.tabPageCustomerList.Size = new System.Drawing.Size(929, 453);
             this.tabPageCustomerList.TabIndex = 7;
-            this.tabPageCustomerList.Text = "CLient List";
+            this.tabPageCustomerList.Text = "Client List";
             this.tabPageCustomerList.UseVisualStyleBackColor = true;
+            // 
+            // buttonDeleteClient
+            // 
+            this.buttonDeleteClient.Location = new System.Drawing.Point(772, 386);
+            this.buttonDeleteClient.Name = "buttonDeleteClient";
+            this.buttonDeleteClient.Size = new System.Drawing.Size(127, 39);
+            this.buttonDeleteClient.TabIndex = 4;
+            this.buttonDeleteClient.Text = "Delete";
+            this.buttonDeleteClient.UseVisualStyleBackColor = true;
+            this.buttonDeleteClient.Click += new System.EventHandler(this.buttonDeleteClient_Click);
             // 
             // dataGridViewCustomerLists
             // 
@@ -305,6 +316,7 @@
             // 
             // tabPageBilling
             // 
+            this.tabPageBilling.Controls.Add(this.buttonAcceptBooking);
             this.tabPageBilling.Controls.Add(this.dataGridViewBilling);
             this.tabPageBilling.Font = new System.Drawing.Font("Calisto MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageBilling.Location = new System.Drawing.Point(4, 24);
@@ -313,6 +325,16 @@
             this.tabPageBilling.TabIndex = 4;
             this.tabPageBilling.Text = "Billing";
             this.tabPageBilling.UseVisualStyleBackColor = true;
+            // 
+            // buttonAcceptBooking
+            // 
+            this.buttonAcceptBooking.Location = new System.Drawing.Point(775, 386);
+            this.buttonAcceptBooking.Name = "buttonAcceptBooking";
+            this.buttonAcceptBooking.Size = new System.Drawing.Size(127, 39);
+            this.buttonAcceptBooking.TabIndex = 2;
+            this.buttonAcceptBooking.Text = "Accept";
+            this.buttonAcceptBooking.UseVisualStyleBackColor = true;
+            this.buttonAcceptBooking.Click += new System.EventHandler(this.buttonAcceptBooking_Click);
             // 
             // dataGridViewBilling
             // 
@@ -326,8 +348,8 @@
             // 
             // tabPageTransactionLogs
             // 
-            this.tabPageTransactionLogs.Controls.Add(this.button3);
-            this.tabPageTransactionLogs.Controls.Add(this.button2);
+            this.tabPageTransactionLogs.Controls.Add(this.buttonEditLogs);
+            this.tabPageTransactionLogs.Controls.Add(this.buttonDeleteTransaction);
             this.tabPageTransactionLogs.Controls.Add(this.dataGridViewTransactionLogs);
             this.tabPageTransactionLogs.Font = new System.Drawing.Font("Calisto MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageTransactionLogs.Location = new System.Drawing.Point(4, 24);
@@ -336,6 +358,25 @@
             this.tabPageTransactionLogs.TabIndex = 2;
             this.tabPageTransactionLogs.Text = "Transaction Logs";
             this.tabPageTransactionLogs.UseVisualStyleBackColor = true;
+            // 
+            // buttonEditLogs
+            // 
+            this.buttonEditLogs.Location = new System.Drawing.Point(764, 384);
+            this.buttonEditLogs.Name = "buttonEditLogs";
+            this.buttonEditLogs.Size = new System.Drawing.Size(127, 39);
+            this.buttonEditLogs.TabIndex = 2;
+            this.buttonEditLogs.Text = "Edit";
+            this.buttonEditLogs.UseVisualStyleBackColor = true;
+            // 
+            // buttonDeleteTransaction
+            // 
+            this.buttonDeleteTransaction.Location = new System.Drawing.Point(764, 326);
+            this.buttonDeleteTransaction.Name = "buttonDeleteTransaction";
+            this.buttonDeleteTransaction.Size = new System.Drawing.Size(127, 39);
+            this.buttonDeleteTransaction.TabIndex = 1;
+            this.buttonDeleteTransaction.Text = "Delete";
+            this.buttonDeleteTransaction.UseVisualStyleBackColor = true;
+            this.buttonDeleteTransaction.Click += new System.EventHandler(this.buttonTransactionDelete_Click);
             // 
             // dataGridViewTransactionLogs
             // 
@@ -372,6 +413,47 @@
             this.tabPageServices.Text = "Services";
             this.tabPageServices.UseVisualStyleBackColor = true;
             this.tabPageServices.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(125, 162);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 19);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Hourly Rate";
+            // 
+            // dateTimePickerBookingDate
+            // 
+            this.dateTimePickerBookingDate.CalendarFont = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerBookingDate.Font = new System.Drawing.Font("Calisto MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerBookingDate.Location = new System.Drawing.Point(76, 329);
+            this.dateTimePickerBookingDate.MinDate = new System.DateTime(2025, 2, 22, 0, 35, 36, 0);
+            this.dateTimePickerBookingDate.Name = "dateTimePickerBookingDate";
+            this.dateTimePickerBookingDate.Size = new System.Drawing.Size(243, 24);
+            this.dateTimePickerBookingDate.TabIndex = 25;
+            this.dateTimePickerBookingDate.Value = new System.DateTime(2025, 2, 22, 0, 35, 36, 0);
+            // 
+            // labelBookingDate
+            // 
+            this.labelBookingDate.AutoSize = true;
+            this.labelBookingDate.Font = new System.Drawing.Font("Calisto MT", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBookingDate.Location = new System.Drawing.Point(70, 275);
+            this.labelBookingDate.Name = "labelBookingDate";
+            this.labelBookingDate.Size = new System.Drawing.Size(191, 35);
+            this.labelBookingDate.TabIndex = 24;
+            this.labelBookingDate.Text = "Booking Date";
+            // 
+            // labeldurationdesc
+            // 
+            this.labeldurationdesc.AutoSize = true;
+            this.labeldurationdesc.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeldurationdesc.Location = new System.Drawing.Point(659, 43);
+            this.labeldurationdesc.Name = "labeldurationdesc";
+            this.labeldurationdesc.Size = new System.Drawing.Size(70, 19);
+            this.labeldurationdesc.TabIndex = 23;
+            this.labeldurationdesc.Text = "in Hours";
             // 
             // buttonRegisterBooking
             // 
@@ -483,6 +565,8 @@
             // 
             // tabPageServicesOffered
             // 
+            this.tabPageServicesOffered.Controls.Add(this.buttonEditTools);
+            this.tabPageServicesOffered.Controls.Add(this.buttonDelete);
             this.tabPageServicesOffered.Controls.Add(this.dataGridViewServicesOffered);
             this.tabPageServicesOffered.Location = new System.Drawing.Point(4, 24);
             this.tabPageServicesOffered.Name = "tabPageServicesOffered";
@@ -499,102 +583,36 @@
             this.dataGridViewServicesOffered.AllowUserToResizeRows = false;
             this.dataGridViewServicesOffered.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewServicesOffered.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewServicesOffered.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewServicesOffered.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewServicesOffered.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewServicesOffered.Location = new System.Drawing.Point(32, 30);
             this.dataGridViewServicesOffered.MultiSelect = false;
             this.dataGridViewServicesOffered.Name = "dataGridViewServicesOffered";
             this.dataGridViewServicesOffered.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewServicesOffered.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewServicesOffered.RowTemplate.ReadOnly = true;
             this.dataGridViewServicesOffered.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewServicesOffered.ShowEditingIcon = false;
             this.dataGridViewServicesOffered.Size = new System.Drawing.Size(705, 395);
             this.dataGridViewServicesOffered.TabIndex = 1;
             // 
-            // labeldurationdesc
+            // buttonDelete
             // 
-            this.labeldurationdesc.AutoSize = true;
-            this.labeldurationdesc.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeldurationdesc.Location = new System.Drawing.Point(659, 43);
-            this.labeldurationdesc.Name = "labeldurationdesc";
-            this.labeldurationdesc.Size = new System.Drawing.Size(70, 19);
-            this.labeldurationdesc.TabIndex = 23;
-            this.labeldurationdesc.Text = "in Hours";
+            this.buttonDelete.Location = new System.Drawing.Point(767, 386);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(127, 39);
+            this.buttonDelete.TabIndex = 5;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = true;
             // 
-            // labelBookingDate
+            // buttonEditTools
             // 
-            this.labelBookingDate.AutoSize = true;
-            this.labelBookingDate.Font = new System.Drawing.Font("Calisto MT", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBookingDate.Location = new System.Drawing.Point(70, 275);
-            this.labelBookingDate.Name = "labelBookingDate";
-            this.labelBookingDate.Size = new System.Drawing.Size(191, 35);
-            this.labelBookingDate.TabIndex = 24;
-            this.labelBookingDate.Text = "Booking Date";
-            // 
-            // dateTimePickerBookingDate
-            // 
-            this.dateTimePickerBookingDate.CalendarFont = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerBookingDate.Font = new System.Drawing.Font("Calisto MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerBookingDate.Location = new System.Drawing.Point(76, 329);
-            this.dateTimePickerBookingDate.MinDate = new System.DateTime(2025, 2, 22, 0, 35, 36, 0);
-            this.dateTimePickerBookingDate.Name = "dateTimePickerBookingDate";
-            this.dateTimePickerBookingDate.Size = new System.Drawing.Size(243, 24);
-            this.dateTimePickerBookingDate.TabIndex = 25;
-            this.dateTimePickerBookingDate.Value = new System.DateTime(2025, 2, 22, 0, 35, 36, 0);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(764, 326);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 39);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(764, 384);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 39);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Edit";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // buttonDeleteClient
-            // 
-            this.buttonDeleteClient.Location = new System.Drawing.Point(772, 386);
-            this.buttonDeleteClient.Name = "buttonDeleteClient";
-            this.buttonDeleteClient.Size = new System.Drawing.Size(127, 39);
-            this.buttonDeleteClient.TabIndex = 4;
-            this.buttonDeleteClient.Text = "Delete";
-            this.buttonDeleteClient.UseVisualStyleBackColor = true;
-            this.buttonDeleteClient.Click += new System.EventHandler(this.buttonDeleteClient_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(125, 162);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 19);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Hourly Rate";
+            this.buttonEditTools.Location = new System.Drawing.Point(767, 341);
+            this.buttonEditTools.Name = "buttonEditTools";
+            this.buttonEditTools.Size = new System.Drawing.Size(127, 39);
+            this.buttonEditTools.TabIndex = 6;
+            this.buttonEditTools.Text = "Edit";
+            this.buttonEditTools.UseVisualStyleBackColor = true;
+            this.buttonEditTools.Click += new System.EventHandler(this.buttonEditTools_Click);
             // 
             // FormAlexis
             // 
@@ -632,7 +650,7 @@
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.TabPage tabPageCustomerManagement;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.ComboBox comboBoxGender;
         private System.Windows.Forms.Label label11;
@@ -670,9 +688,12 @@
         private System.Windows.Forms.Label labeldurationdesc;
         private System.Windows.Forms.DateTimePicker dateTimePickerBookingDate;
         private System.Windows.Forms.Label labelBookingDate;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonEditLogs;
+        private System.Windows.Forms.Button buttonDeleteTransaction;
         private System.Windows.Forms.Button buttonDeleteClient;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonAcceptBooking;
+        private System.Windows.Forms.Button buttonEditTools;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }

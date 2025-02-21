@@ -26,6 +26,7 @@ namespace AlexisConstructionProject.Forms
             DataGrids.transactionLogs(dataGridViewTransactionLogs);
             DataGrids.AvailableServices(dataGridViewServicesOffered);
             DataGrids.clientLists(dataGridViewCustomerLists);
+            DataGrids.transactionBilling(dataGridViewBilling);
         }
 
         private void FormAlexis_Load(object sender, EventArgs e)
@@ -124,6 +125,22 @@ namespace AlexisConstructionProject.Forms
         {
             UserCreation.deleteUser(dataGridViewCustomerLists);
             DataGrids.clientLists(dataGridViewCustomerLists);
+        }
+
+        private void buttonTransactionDelete_Click(object sender, EventArgs e)
+        {
+             DataGrids.transactionBilling(dataGridViewCustomerLists);
+        }
+
+        private void buttonAcceptBooking_Click(object sender, EventArgs e)
+        {
+            //booking.AcceptBooking(dataGridViewBilling);
+            DataGrids.transactionBilling(dataGridViewBilling);
+        }
+
+        private void buttonEditTools_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
