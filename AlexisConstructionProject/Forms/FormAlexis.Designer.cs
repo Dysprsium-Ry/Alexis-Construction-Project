@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.tabPageCustomerManagement = new System.Windows.Forms.TabPage();
@@ -71,6 +71,10 @@
             this.labeldurationdesc = new System.Windows.Forms.Label();
             this.labelBookingDate = new System.Windows.Forms.Label();
             this.dateTimePickerBookingDate = new System.Windows.Forms.DateTimePicker();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.tabPageCustomerManagement.SuspendLayout();
             this.tabPageCustomerList.SuspendLayout();
@@ -126,7 +130,7 @@
             this.tabPageCustomerManagement.Name = "tabPageCustomerManagement";
             this.tabPageCustomerManagement.Size = new System.Drawing.Size(929, 453);
             this.tabPageCustomerManagement.TabIndex = 6;
-            this.tabPageCustomerManagement.Text = "Customer Management";
+            this.tabPageCustomerManagement.Text = "Client Management";
             this.tabPageCustomerManagement.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -259,12 +263,13 @@
             // 
             // tabPageCustomerList
             // 
+            this.tabPageCustomerList.Controls.Add(this.button4);
             this.tabPageCustomerList.Controls.Add(this.dataGridViewCustomerLists);
             this.tabPageCustomerList.Location = new System.Drawing.Point(4, 24);
             this.tabPageCustomerList.Name = "tabPageCustomerList";
             this.tabPageCustomerList.Size = new System.Drawing.Size(929, 453);
             this.tabPageCustomerList.TabIndex = 7;
-            this.tabPageCustomerList.Text = "Customer List";
+            this.tabPageCustomerList.Text = "CLient List";
             this.tabPageCustomerList.UseVisualStyleBackColor = true;
             // 
             // dataGridViewCustomerLists
@@ -321,6 +326,8 @@
             // 
             // tabPageTransactionLogs
             // 
+            this.tabPageTransactionLogs.Controls.Add(this.button3);
+            this.tabPageTransactionLogs.Controls.Add(this.button2);
             this.tabPageTransactionLogs.Controls.Add(this.dataGridViewTransactionLogs);
             this.tabPageTransactionLogs.Font = new System.Drawing.Font("Calisto MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageTransactionLogs.Location = new System.Drawing.Point(4, 24);
@@ -343,6 +350,7 @@
             // 
             // tabPageServices
             // 
+            this.tabPageServices.Controls.Add(this.label1);
             this.tabPageServices.Controls.Add(this.dateTimePickerBookingDate);
             this.tabPageServices.Controls.Add(this.labelBookingDate);
             this.tabPageServices.Controls.Add(this.labeldurationdesc);
@@ -377,6 +385,7 @@
             // 
             // textBoxTotalFee
             // 
+            this.textBoxTotalFee.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBoxTotalFee.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotalFee.Location = new System.Drawing.Point(536, 200);
             this.textBoxTotalFee.Name = "textBoxTotalFee";
@@ -387,16 +396,17 @@
             // 
             // textBoxFee
             // 
+            this.textBoxFee.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBoxFee.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxFee.Location = new System.Drawing.Point(76, 200);
             this.textBoxFee.Name = "textBoxFee";
-            this.textBoxFee.ReadOnly = true;
             this.textBoxFee.Size = new System.Drawing.Size(243, 26);
             this.textBoxFee.TabIndex = 9;
             this.textBoxFee.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // textBoxDuration
             // 
+            this.textBoxDuration.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBoxDuration.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDuration.Location = new System.Drawing.Point(536, 85);
             this.textBoxDuration.Name = "textBoxDuration";
@@ -406,6 +416,7 @@
             // 
             // comboBoxServices
             // 
+            this.comboBoxServices.Cursor = System.Windows.Forms.Cursors.Default;
             this.comboBoxServices.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxServices.FormattingEnabled = true;
             this.comboBoxServices.Location = new System.Drawing.Point(76, 83);
@@ -488,28 +499,28 @@
             this.dataGridViewServicesOffered.AllowUserToResizeRows = false;
             this.dataGridViewServicesOffered.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewServicesOffered.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewServicesOffered.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewServicesOffered.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewServicesOffered.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewServicesOffered.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewServicesOffered.Location = new System.Drawing.Point(32, 30);
             this.dataGridViewServicesOffered.MultiSelect = false;
             this.dataGridViewServicesOffered.Name = "dataGridViewServicesOffered";
             this.dataGridViewServicesOffered.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewServicesOffered.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewServicesOffered.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewServicesOffered.RowTemplate.ReadOnly = true;
             this.dataGridViewServicesOffered.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewServicesOffered.ShowEditingIcon = false;
@@ -546,6 +557,43 @@
             this.dateTimePickerBookingDate.Size = new System.Drawing.Size(243, 24);
             this.dateTimePickerBookingDate.TabIndex = 25;
             this.dateTimePickerBookingDate.Value = new System.DateTime(2025, 2, 22, 0, 35, 36, 0);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(764, 326);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(127, 39);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Delete";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(764, 384);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(127, 39);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Edit";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(772, 386);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(127, 39);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Delete";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(125, 162);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 19);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Hourly Rate";
             // 
             // FormAlexis
             // 
@@ -621,5 +669,9 @@
         private System.Windows.Forms.Label labeldurationdesc;
         private System.Windows.Forms.DateTimePicker dateTimePickerBookingDate;
         private System.Windows.Forms.Label labelBookingDate;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label1;
     }
 }
