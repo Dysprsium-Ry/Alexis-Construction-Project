@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AlexisConstructionProject.Classes.functionsLogIn;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,7 @@ namespace AlexisConstructionProject.Objects
     {
         public static string[] services { get; set; }
         public static string[] tools { get; set; }
+        public static int price { get; set; }
     }
 
     public class CreateUser
@@ -40,5 +42,19 @@ namespace AlexisConstructionProject.Objects
         public static int age { get; set; }
         public static char gender { get; set; }
         public static byte[] Id { get; set; }
+    }
+
+    public class selectedItem
+    {
+        public static string service { get; set; }
+        public static DateTime DateBooked { get; set; }
+        public static int duration { get; set; }
+        public static int Fee { get; set; }
+        public static int TotalFee { get; set; }
+    }
+
+    public class Datagrid
+    {
+
     }
 }

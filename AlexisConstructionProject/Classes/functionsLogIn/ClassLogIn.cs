@@ -2,6 +2,9 @@
 using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Data.SqlClient;
+using System.Data;
+using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace AlexisConstructionProject.Classes.functionsLogIn
 {
@@ -105,7 +108,80 @@ namespace AlexisConstructionProject.Classes.functionsLogIn
                     }
                 }
             }
-            else { System.Windows.Forms.MessageBox.Show("Account Already Existing", "Registration Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error); }
+            else { MessageBox.Show("Account Already Existing", "Registration Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error); }
+        }
+    }
+
+    public class booking
+    {
+        public static void registerBooking()
+        {
+            using (SqlConnection connection = Sqlconnection.connection())
+            {
+                using (SqlCommand command = new SqlCommand("SELECT DateBooked FROM ACS.registerBooking WHERE DateBooked = @datebooked", connection))
+                {
+                    command.Parameters.AddWithValue("@datebooked", selectedItem.DateBooked);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Validities.isValid = true;
+                        }
+                    }
+                }
+
+                if (!(Validities.isValid))
+                {
+                    using (SqlCommand command = new SqlCommand("INSERT INTO ACS.registerBooking (Service, DateBooked, RentalDuration, Fee, TotalFee) VALUES(@service, @datebooked, @rentalduration, @fee, @totalfee);", connection))
+                    {
+                        command.Parameters.AddWithValue("@service", selectedItem.service);
+                        command.Parameters.AddWithValue("@datebooked", selectedItem.DateBooked);
+                        command.Parameters.AddWithValue("@rentalduration", selectedItem.duration);
+                        command.Parameters.AddWithValue("@fee", Items.price);
+                        command.Parameters.AddWithValue("@TotalFee", selectedItem.TotalFee);
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Booking Complete wait for further update on request.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else { MessageBox.Show("Date is scheduled reserve for other day", "Invalid Booking", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+            }
+        }
+    }
+
+    public class DataGrids
+    {
+        public static void transactionLogs(DataGridView datagrid)
+        {
+            using (SqlConnection connection = Sqlconnection.connection())
+            {
+                using (SqlCommand command = new SqlCommand("SELECT Service, DateBooked, RentalDuration, Fee, TotalFee FROM ACS.registerBooking", connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+                        datagrid.AutoGenerateColumns = true;
+                        datagrid.DataSource = table;
+                    }
+                }
+            }
+        }
+
+        public static void AvailableServices(DataGridView datagrid)
+        {
+            using (SqlConnection connection = Sqlconnection.connection())
+            {
+                using (SqlCommand command = new SqlCommand("SELECT Service, Tool FROM ACS.Tools ORDER BY Service", connection))
+                {
+                    using (SqlDataAdapter dapter = new SqlDataAdapter(command))
+                    {
+                        DataTable table = new DataTable();
+                        dapter.Fill(table);
+                        datagrid.AutoGenerateColumns = true;
+                        datagrid.DataSource = table;
+                    }
+                }
+            }
         }
     }
 }

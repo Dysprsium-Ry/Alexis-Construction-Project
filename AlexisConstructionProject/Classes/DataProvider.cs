@@ -19,11 +19,14 @@ namespace AlexisConstructionProject.Classes
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         List<string> servicesList = new List<string>();
+                        //List<int> priceList = new List<int>();
                         while (reader.Read())
                         {
                             servicesList.Add(reader.GetString(0));
+                            //priceList.Add(reader.GetInt32(1));
                         }
                         Items.services = servicesList.ToArray();
+                        //Items.price = priceList.ToArray();
                     }
                 }
             }
