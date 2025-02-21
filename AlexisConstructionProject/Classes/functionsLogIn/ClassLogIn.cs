@@ -168,6 +168,7 @@ namespace AlexisConstructionProject.Classes.functionsLogIn
                     using (SqlCommand command = new SqlCommand("INSERT INTO ACS.BillingTransaction (TransactionID, DateBooked, TotalFee) VALUES(@Id, @datebooked, @totalfee)", connection))
                     {
                         //command.Parameters.AddWithValue("@Id", );
+                        ////command.Parameters.AddWithValue("@", )
                         command.Parameters.AddWithValue("@DateBooked", selectedItem.DateBooked);
                         command.Parameters.AddWithValue("@TotalFee", selectedItem.TotalFee);
                         command.ExecuteNonQuery();
@@ -176,24 +177,6 @@ namespace AlexisConstructionProject.Classes.functionsLogIn
                 else { MessageBox.Show("Date is scheduled reserve for other day", "Invalid Booking", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
             }
         }
-
-        //public static void AcceptBooking(DataGridView datagrid)
-        //{
-        //    if (datagrid.SelectedRows.Count > 0)
-        //    {
-        //        DataGridViewRow selectedRow = datagrid.CurrentRow;
-
-        //        using (SqlConnection connection = Sqlconnection.connection())
-        //        {
-        //            using (SqlCommand delete = new SqlCommand($"DELETE FROM ACS.UserAccounts WHERE ID = {id}", connection))
-        //            {
-        //                delete.ExecuteNonQuery();
-
-        //                MessageBox.Show("Successfully Deleted Record!", "Notice!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        //            }
-        //        }
-        //    }
-        //}
     }
 
     public class DataGrids
