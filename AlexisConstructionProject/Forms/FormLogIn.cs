@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SqlClient;
-using AlexisConstructionProject.Classes;
-using AlexisConstructionProject.Classes.functionsLogIn;
+﻿using AlexisConstructionProject.Classes.functionsLogIn;
 using AlexisConstructionProject.Objects;
+using System;
+using System.Windows.Forms;
 
 namespace AlexisConstructionProject.Forms
 {
@@ -25,12 +16,19 @@ namespace AlexisConstructionProject.Forms
         {
             UserCredentials.Username = textBoxUsername.Text;
             UserCredentials.Password = textBoxPassword.Text;
-            ClassLogIn.signin();
+            //ClassLogIn.ReferenceEquals(this, (FormLogIn)sender);
+            ClassLogIn.isAccountExist();
+
+            if (Validities.isValid) { ClassLogIn.signin(); } else { MessageBox.Show("Account does not Exist", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+
             if (UserCredentials.ID != 0)
             {
-                this.Hide();
-                MainBoardUserClient logGrant = new MainBoardUserClient();
-                logGrant.Show();
+                if (UserCredentials.ID != 1)
+                {
+                    this.Hide();
+                    MainBoardUserClient logGrant = new MainBoardUserClient();
+                    logGrant.Show();
+                }
 
                 if (UserCredentials.ID == 1)
                 {

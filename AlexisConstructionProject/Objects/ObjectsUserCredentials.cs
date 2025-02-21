@@ -24,4 +24,21 @@ namespace AlexisConstructionProject.Objects
         public static bool isValid { get; set; }
         public static bool isPresent { get; set; }
     }
+
+    public class Items
+    {
+        public static string[] services { get; set; }
+        public static string[] tools { get; set; }
+    }
+
+    public class CreateUser
+    {
+        public static string username { get; set; }
+        public static string password { get; set; }
+        public static string fname { get; set; }
+        public static string lname { get; set; }
+        public static int age { get; set; }
+        public static char gender { get; set; }
+        public static byte[] Id { get; set; }
+    }
 }

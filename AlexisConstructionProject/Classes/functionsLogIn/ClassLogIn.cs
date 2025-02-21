@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AlexisConstructionProject.Objects;
+using ComponentFactory.Krypton.Toolkit;
+using System;
 using System.Data.SqlClient;
-using AlexisConstructionProject.Objects;
-using System.Runtime.CompilerServices;
-using System.ComponentModel.Design;
 
 namespace AlexisConstructionProject.Classes.functionsLogIn
 {
@@ -50,7 +45,6 @@ namespace AlexisConstructionProject.Classes.functionsLogIn
                 }
             }
         }
-
         public static void isAccountExist()
         {
             using (SqlConnection connection = Sqlconnection.connection())
@@ -58,6 +52,7 @@ namespace AlexisConstructionProject.Classes.functionsLogIn
                 using (SqlCommand command = new SqlCommand("SELECT Count(*) FROM ACS.UserAccounts WHERE ID = @id", connection))
                 {
                     command.Parameters.AddWithValue("@id", UserCredentials.ID);
+
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -67,6 +62,50 @@ namespace AlexisConstructionProject.Classes.functionsLogIn
                     }
                 }
             }
+        }
+    }
+
+    public class validation
+    {
+        public static void isAccountExist()
+        {
+            using (SqlConnection connection = Sqlconnection.connection())
+            {
+                using (SqlCommand command = new SqlCommand("SELECT Count(*) FROM ACS.UserAccounts WHERE Username = @username", connection))
+                {
+                    command.Parameters.AddWithValue("@username", CreateUser.username);
+
+                    int isExist = (int)command.ExecuteScalar();
+
+                    if (isExist != 0) Validities.isPresent = true;
+                }
+            }
+        }
+    }
+
+    public class UserCreation
+    {
+        public static void createUser()
+        {
+            validation.isAccountExist();
+
+            if (!(Validities.isPresent))
+            {
+                using (SqlConnection connection = Sqlconnection.connection())
+                {
+                    using (SqlCommand command = new SqlCommand("INSERT INTO ACS.UserAccounts (Username, Password, FirstName, LastName, Age, Gender) VALUES(@username, @password, @fname, @lname, @age, @gender)", connection))
+                    {
+                        command.Parameters.AddWithValue("@username", CreateUser.username);
+                        command.Parameters.AddWithValue("@password", CreateUser.password);
+                        command.Parameters.AddWithValue("@fname", CreateUser.fname);
+                        command.Parameters.AddWithValue("@lname", CreateUser.lname);
+                        command.Parameters.AddWithValue("@age", CreateUser.age);
+                        command.Parameters.AddWithValue("@gender", CreateUser.gender);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            else { System.Windows.Forms.MessageBox.Show("Account Already Existing", "Registration Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error); }
         }
     }
 }
