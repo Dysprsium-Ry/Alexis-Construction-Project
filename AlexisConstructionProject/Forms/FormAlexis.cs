@@ -25,6 +25,7 @@ namespace AlexisConstructionProject.Forms
 
             DataGrids.transactionLogs(dataGridViewTransactionLogs);
             DataGrids.AvailableServices(dataGridViewServicesOffered);
+            DataGrids.clientLists(dataGridViewCustomerLists);
         }
 
         private void FormAlexis_Load(object sender, EventArgs e)
@@ -66,28 +67,63 @@ namespace AlexisConstructionProject.Forms
 
         private void textBox_TextChanged(object sender, EventArgs e)
         {
-            switch (comboBoxServices.Text)
+            if (string.IsNullOrEmpty(textBoxFee.Text))
             {
-                case "Plumbing":
-                    Items.price = 150;
-                    break;
-                case "Electrical":
-                    Items.price = 300;
-                    break;
-                case "Masonry":
-                    Items.price = 250;
-                    break;
-                case "Carpentry Works":
-                    Items.price = 200;
-                    break;
+                switch (comboBoxServices.Text)
+                {
+                    case "Plumbing":
+                        Items.price = 150;
+                        break;
+                    case "Electrical":
+                        Items.price = 300;
+                        break;
+                    case "Masonry":
+                        Items.price = 250;
+                        break;
+                    case "Carpentry Works":
+                        Items.price = 200;
+                        break;
+                }
+                textBoxFee.Text = Items.price.ToString();
             }
 
-            textBoxFee.Text = Items.price.ToString();
+            if (string.IsNullOrEmpty(textBoxDuration.Text))
+            {
+                switch (comboBoxServices.Text)
+                {
+                    case "Plumbing":
+                        selectedItem.duration = 12;
+                        break;
+                    case "Electrical":
+                        selectedItem.duration = 12;
+                        break;
+                    case "Masonry":
+                        selectedItem.duration = 24;
+                        break;
+                    case "Carpentry Works":
+                        selectedItem.duration = 6;
+                        break;
+                }
+                textBoxDuration.Text = selectedItem.duration.ToString();
+            }
+
 
             int duration = string.IsNullOrWhiteSpace(textBoxDuration.Text) ? 0 : Convert.ToInt32(textBoxDuration.Text);
+            //int? fee = string.IsNullOrWhiteSpace(textBoxFee.Text) ? 0 : Convert.ToInt32(textboxUsername.Text);
 
-            int? total = Items.price * duration;
+            int? total = Convert.ToInt32(textBoxFee.Text) * duration;
             textBoxTotalFee.Text = total.ToString();
+
+            if (!string.IsNullOrEmpty(textBoxFee.Text))
+            {
+                Items.price = Convert.ToInt32(textBoxFee.Text);
+            }
+        }
+
+        private void buttonDeleteClient_Click(object sender, EventArgs e)
+        {
+            UserCreation.deleteUser(dataGridViewCustomerLists);
+            DataGrids.clientLists(dataGridViewCustomerLists);
         }
     }
 }

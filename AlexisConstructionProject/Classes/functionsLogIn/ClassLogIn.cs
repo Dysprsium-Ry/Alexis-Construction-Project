@@ -1,10 +1,8 @@
 ﻿using AlexisConstructionProject.Objects;
-using ComponentFactory.Krypton.Toolkit;
 using System;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 
 namespace AlexisConstructionProject.Classes.functionsLogIn
 {
@@ -110,6 +108,30 @@ namespace AlexisConstructionProject.Classes.functionsLogIn
             }
             else { MessageBox.Show("Account Already Existing", "Registration Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error); }
         }
+
+        public static void deleteUser(DataGridView datagrid)
+        {
+            if (MessageBox.Show("Delete the Record? You cannot undo this action.", "Notice!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+
+                if (datagrid.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = datagrid.CurrentRow;
+
+                    long? id = selectedRow.Cells["ID"].Value as long?;
+
+                    using (SqlConnection connection = Sqlconnection.connection())
+                    {
+                        using (SqlCommand delete = new SqlCommand($"DELETE FROM ACS.UserAccounts WHERE ID = {id}", connection))
+                        {
+                            delete.ExecuteNonQuery();
+
+                            MessageBox.Show("Successfully Deleted Record!", "Notice!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public class booking
@@ -182,6 +204,24 @@ namespace AlexisConstructionProject.Classes.functionsLogIn
                     }
                 }
             }
+        }
+
+        public static void clientLists(DataGridView datagrid)
+        {
+            using (SqlConnection connection = Sqlconnection.connection())
+            {
+                using (SqlCommand command = new SqlCommand("SELECT * FROM ACS.UserAccounts", connection))
+                {
+                    using (SqlDataAdapter dapter = new SqlDataAdapter(command))
+                    {
+                        DataTable table = new DataTable();
+                        dapter.Fill(table);
+                        datagrid.AutoGenerateColumns = true;
+                        datagrid.DataSource = table;
+                    }
+                }
+            }
+
         }
     }
 }
