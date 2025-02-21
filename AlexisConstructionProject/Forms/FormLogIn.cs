@@ -31,6 +31,13 @@ namespace AlexisConstructionProject.Forms
                 this.Hide();
                 MainBoardUserClient logGrant = new MainBoardUserClient();
                 logGrant.Show();
+
+                if (UserCredentials.ID == 1)
+                {
+                    this.Hide();
+                    FormAlexis adminform = new FormAlexis();
+                    adminform.Show();
+                }
             }
         }
     }

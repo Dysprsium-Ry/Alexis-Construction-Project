@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AlexisConstructionProject.Objects
 {
@@ -21,5 +22,6 @@ namespace AlexisConstructionProject.Objects
     public class Validities
     {
         public static bool isValid { get; set; }
+        public static bool isPresent { get; set; }
     }
 }

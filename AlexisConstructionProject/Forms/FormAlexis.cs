@@ -1,5 +1,4 @@
-﻿using AlexisConstructionProject.Objects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,16 +10,11 @@ using System.Windows.Forms;
 
 namespace AlexisConstructionProject.Forms
 {
-    public partial class MainBoardUserClient : Form
+    public partial class FormAlexis : Form
     {
-        public MainBoardUserClient()
+        public FormAlexis()
         {
             InitializeComponent();
-        }
-
-        private void MainBoardUserClient_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

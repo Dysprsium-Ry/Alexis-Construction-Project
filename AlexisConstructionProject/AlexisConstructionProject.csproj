@@ -49,6 +49,12 @@
   <ItemGroup>
     <Compile Include="Classes\Database.cs" />
     <Compile Include="Classes\functionsLogIn\ClassLogIn.cs" />
+    <Compile Include="Forms\FormAlexis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAlexis.Designer.cs">
+      <DependentUpon>FormAlexis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,9 @@
     <Compile Include="Objects\ObjectsUserCredentials.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FormAlexis.resx">
+      <DependentUpon>FormAlexis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormLogIn.resx">
       <DependentUpon>FormLogIn.cs</DependentUpon>
     </EmbeddedResource>
